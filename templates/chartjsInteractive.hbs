@@ -1,0 +1,36 @@
+<div class="chart__inner component__inner">
+  {{> component this}}
+  <canvas id="myChart{{_id}}" class="chart__widget component__widget" width="640" height="360" style="width: 100%; height: 100%;"></canvas>
+  <div id="axisSelections" style="display: block;">
+    <div id="xAxisSelector" class="axis-selector">
+      <label for="xAxis">X-Axis:</label>
+      <select id="xAxis">
+        <!-- Options will be dynamically added based on selected chart type -->
+      </select>
+    </div>
+    <div id="yAxisSelector" class="axis-selector">
+      <label for="yAxis">Y-Axis:</label>
+      <select id="yAxis">
+        <!-- Options will be dynamically added based on selected chart type -->
+      </select>
+    </div>
+    <div id="pointColorSelector" class="axis-selector">
+      <label for="pointColor">Point/Bar colour:</label>
+      <select id="pointColor">
+        <!-- Options will be dynamically added based on selected chart type -->
+      </select>
+    </div>
+    <div id="binCountSelector" class="bin-selector">
+       <label for="binCount">Bin Count:</label>
+       <input type="number" id="binCount" min="1" max="10" value="5">
+    </div>
+  </div>
+  <div id="chartType" class="chart-type-selector">
+    {{#each availableChartTypes}}
+      <button class="chart-button {{this.type}}-chart" data-chart-type="{{this.type}}">
+        <span class="icon"><img src="assets/{{this.type}}-chart-icon.png"/></span>
+        <span class="title">{{this.type}}</span>
+      </button>
+    {{/each}}
+  </div>
+</div>

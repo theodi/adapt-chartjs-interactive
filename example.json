@@ -1,0 +1,30 @@
+// bar chart example
+{
+  "_id": "c-15",
+  "_parentId": "b-10",
+  "_type": "component",
+  "_component": "chartjs",
+  "_classes": "",
+  "_layout": "full",
+  "title": "Title of the chart component",
+  "displayTitle": "Title of the chart component",
+  "body": "This is optional body text.",
+  "instruction": "",
+  "availableChartTypes" : [ 
+            {
+                "type" : "line"
+            }, 
+            {
+                "type" : "scatter"
+            }, 
+            {
+                "type" : "histogram"
+            }
+        ],
+  "defaultChartType": "line",
+  "defaultXAxis": "x-axis-label",
+  "defaultYAxis": "y-axis-label",
+  "defaultColorSelector": "color-field",
+  "dataSource": "/path/to/data.csv",
+  "height": 460
+}

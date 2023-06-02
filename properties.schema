@@ -1,0 +1,139 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
+  "globals": {
+    "ariaRegion": {
+      "type": "string",
+      "required": true,
+      "default": "This is a charting component.",
+      "inputType": "Text",
+      "validators": []
+    }
+  },
+  "properties": {
+    "_supportedLayout": {
+      "type": "string",
+      "required": true,
+      "enum": ["full-width", "half-width", "both"],
+      "default": "both",
+      "editorOnly": true
+    },
+    "instruction": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "This is the instruction text"
+    },
+    "availableChartTypes" : {
+      "type" : "array",
+      "required" : true,
+      "title" : "Available Chart Types",
+      "items" : {
+          "type" : "object",
+          "required" : true,
+          "properties" : {
+              "type" : {
+                  "type" : "string",
+                  "required" : true,
+                  "enum" : [ 
+                      "line", 
+                      "scatter", 
+                      "boxplot", 
+                      "histogram"
+                  ],
+                  "default" : "",
+                  "title" : "Type",
+                  "inputType" : {
+                      "type" : "Select",
+                      "options" : [ 
+                          "line", 
+                          "scatter", 
+                          "boxplot", 
+                          "histogram"
+                      ]
+                  }
+              }
+          }
+      },
+      "validators" : [],
+      "help" : "Select the available chart types"
+    },
+    "defaultChartType" : {
+        "type" : "string",
+        "required" : true,
+        "default" : "line",
+        "title" : "Default Chart Type",
+        "enum" : [ 
+            "line", 
+            "scatter", 
+            "boxplot", 
+            "histogram"
+        ],
+        "inputType" : {
+            "type" : "Select",
+            "options" : [ 
+                "line", 
+                "scatter", 
+                "boxplot", 
+                "histogram"
+            ]
+        },
+        "validators" : [],
+        "help" : "Select the default chart type for the component."
+    },
+    "defaultXAxis" : {
+        "type" : "string",
+        "required" : false,
+        "default" : "",
+        "title" : "Default X-Axis",
+        "inputType" : "Text",
+        "validators" : [],
+        "help" : "Specify the default X-Axis value"
+    },
+    "defaultYAxis" : {
+        "type" : "string",
+        "required" : false,
+        "default" : "",
+        "title" : "Default Y-Axis",
+        "inputType" : "Text",
+        "validators" : [],
+        "help" : "Specify the default Y-Axis value"
+    },
+    "defaultColorSelector" : {
+        "type" : "string",
+        "required" : false,
+        "default" : "",
+        "title" : "Default Color Selector",
+        "inputType" : "Text",
+        "validators" : [],
+        "help" : "Specify the default Color Selector value"
+    },
+    "height" : {
+        "type" : "number",
+        "required" : true,
+        "default" : 460,
+        "title" : "Chart Height",
+        "inputType" : "Number",
+        "validators" : [ 
+            "required", 
+            "number"
+        ],
+        "help" : "Chart height in pixels"
+    },
+    "dataSource" : {
+        "type" : "string",
+        "required" : true,
+        "default" : "",
+        "title" : "Data Source",
+        "inputType" : "Asset:other",
+        "validators" : [ 
+            "required"
+        ],
+        "help" : "Select the data source from the asset catalog"
+    }
+  }
+}
