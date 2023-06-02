@@ -1,4 +1,4 @@
-# adapt-chartjs-interaction
+# adapt-chartjs-interactive
 
 This is a container for displaying [Chart.js](http://www.chartjs.org/) charts in the Adapt framework and authoring tool. This plugin has a number of selectable charts that you can specify by default and it also allows the user to interact with the charts, selecting different charts as well as dimensions from the data for the X and Y axis as well as color of points or bars. 
 
