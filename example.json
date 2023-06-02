@@ -3,7 +3,7 @@
   "_id": "c-15",
   "_parentId": "b-10",
   "_type": "component",
-  "_component": "chartjs",
+  "_component": "chartjsInteractive",
   "_classes": "",
   "_layout": "full",
   "title": "Title of the chart component",
