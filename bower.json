@@ -2,7 +2,7 @@
     "name": "adapt-chartjs-interactive",
     "repository": "https://github.com/theodi/adapt-chartjs-interactive",
     "framework": ">=5",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "homepage": "https://github.com/theodi/adapt-chartjs-interactive",
     "issues": "https://github.com/theodi/adapt-chartjs-interactive/issues/new",
     "displayName": "ChartJS (interactive)",
