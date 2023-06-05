@@ -1,7 +1,7 @@
 import Adapt from 'core/js/adapt';
 import ComponentView from 'core/js/views/componentView';
 import Chart from 'libraries/chart';
-import boxplot from 'libraries/chartjs-chart-boxplot';
+import boxplot, { BoxPlotController, BoxAndWiskers } from 'libraries/chartjs-chart-boxplot';
 
 export default class ChartJSInteractiveView extends ComponentView {
 
