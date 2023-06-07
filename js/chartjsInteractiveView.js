@@ -1,7 +1,7 @@
 import Adapt from 'core/js/adapt';
 import ComponentView from 'core/js/views/componentView';
 import Chart from 'libraries/chart';
-import boxplot, { BoxPlotController, BoxAndWiskers } from 'libraries/chartjs-chart-boxplot';
+import { BoxPlotChart } from 'libraries/chartjs-chart-boxplot';
 
 export default class ChartJSInteractiveView extends ComponentView {
 
@@ -135,8 +135,11 @@ export default class ChartJSInteractiveView extends ComponentView {
     if (this.chartInstance) {
       this.chartInstance.destroy();
     }
-
-    this.chartInstance = new Chart(context, chartConfig);
+    if (chartType === 'boxplot') {
+      this.chartInstance = new BoxPlotChart(context, chartConfig);
+    } else {
+      this.chartInstance = new Chart(context, chartConfig);
+    }
     this.setReadyStatus();
   }
 

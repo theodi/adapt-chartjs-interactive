@@ -59,7 +59,6 @@ export default class ChartJSInteractiveModel extends ComponentModel {
 
   createScatterPlot(data, xAxis, yAxis, colorField) {
     this.colorCounter = 0;
-    console.log(this.getColor());
     var xValues = data.map(function(item) {
       return item[xAxis];
     });
@@ -185,7 +184,6 @@ export default class ChartJSInteractiveModel extends ComponentModel {
 
     // Create the box plot chart
     var chartConfig = {
-      type: 'boxplot',
       data: {
         labels: [""],
         datasets: datasets,
