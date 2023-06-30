@@ -1,4 +1,3 @@
-import Adapt from 'core/js/adapt';
 import ComponentView from 'core/js/views/componentView';
 import Chart from 'libraries/chart';
 import { BoxPlotChart } from 'libraries/chartjs-chart-boxplot';
@@ -20,7 +19,7 @@ export default class ChartJSInteractiveView extends ComponentView {
           console.error('Error loading chart data:', error);
         });
     } else {
-      console.error('Error loading chart data:', error);
+      console.error('Error loading chart data');
     }
   }
 
@@ -99,7 +98,7 @@ export default class ChartJSInteractiveView extends ComponentView {
     const binCount = this.model.get('binCount');
     const chartType = this.model.get('chartType');
 
-    if (chartType == 'histogram') {
+    if (chartType === 'histogram') {
       this.$('#binCountSelector').css('display', 'inline-block');
       this.$('#pointColorSelector').css('display', 'inline-block');
       this.$('#yAxisSelector').css('display', 'none');
@@ -108,10 +107,10 @@ export default class ChartJSInteractiveView extends ComponentView {
       this.$('#pointColorSelector').css('display', 'none');
       this.$('#yAxisSelector').css('display', 'inline-block');
     }
-    if (chartType == 'scatter') {
+    if (chartType === 'scatter') {
       this.$('#pointColorSelector').css('display', 'inline-block');
     }
-    if (chartType != 'histogram' && chartType != 'scatter') {
+    if (chartType !== 'histogram' && chartType !== 'scatter') {
       this.$('#pointColorSelector').css('display', 'none');
     }
 
@@ -121,9 +120,9 @@ export default class ChartJSInteractiveView extends ComponentView {
       chartConfig = this.model.createScatterPlot(this.chartData, xAxis, yAxis, pointColor);
     } else if (chartType === 'boxplot') {
       chartConfig = this.model.createBoxPlot(this.chartData, xAxis, yAxis, pointColor);
-    } else if (chartType === 'histogram' && pointColor != 'none') {
+    } else if (chartType === 'histogram' && pointColor !== 'none') {
       chartConfig = this.model.createHistogram(this.chartData, xAxis, binCount, pointColor);
-    } else if (chartType === 'histogram' && pointColor == 'none') {
+    } else if (chartType === 'histogram' && pointColor === 'none') {
       chartConfig = this.model.createHistogramAllData(this.chartData, xAxis, binCount);
     }
     console.log(JSON.stringify(chartConfig));
