@@ -6,7 +6,6 @@ export default class ChartJSInteractiveView extends ComponentView {
 
   preRender() {
     const dataSource = this.model.get('dataSource');
-    console.log(JSON.stringify(this.model.get('availableChartTypes')));
     if (dataSource) {
       fetch(dataSource)
         .then(response => response.text())
@@ -79,6 +78,20 @@ export default class ChartJSInteractiveView extends ComponentView {
     this.chartAxisSelectors.on('change', this.onAxisChange.bind(this));
     this.chartBinSelector = this.$('.bin-selector input');
     this.chartBinSelector.on('change', this.onAxisChange.bind(this));
+    this.setupInview();
+  }
+
+  setupInview() {
+    const selector = this.getInviewElementSelector();
+    if (!selector) return this.setCompletionStatus();
+    this.setupInviewCompletion(selector);
+  }
+
+  getInviewElementSelector() {
+    if (this.model.get('body')) return '.component__body';
+    if (this.model.get('instruction')) return '.component__instruction';
+    if (this.model.get('displayTitle')) return '.component__title';
+    return null;
   }
 
   onChartTypeButtonClick(event) {
